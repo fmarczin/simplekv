@@ -4,7 +4,7 @@ import os
 import stat
 from simplekv._compat import BytesIO, url_quote, url_unquote
 import tempfile
-from simplekv._compat import urlparse
+from simplekv._compat import urlparse, PY2
 
 from simplekv.fs import FilesystemStore, WebFilesystemStore
 from tempdir import TempDir
@@ -13,7 +13,11 @@ from basic_store import BasicStore
 from url_store import UrlStore
 from idgens import UUIDGen, HashGen
 
-from mock import Mock
+if not PY2:
+    from unittest.mock import Mock
+else:
+    from mock import Mock
+
 import pytest
 
 
