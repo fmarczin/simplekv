@@ -18,7 +18,7 @@ import os
 on_rtd = os.environ.get('READTHEDOCS') == 'True'
 
 if on_rtd:
-    html_theme = 'sphinx_rtd_theme'
+    html_theme = 'alabaster'
 else:
     import sphinx_readable_theme
     html_theme = 'readable'
